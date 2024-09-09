@@ -1,5 +1,6 @@
-package ru.nsu.shabalina;
+package test.java.ru.nsu.shabalina;
 
+import main.java.ru.nsu.shabalina.Heapsort;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

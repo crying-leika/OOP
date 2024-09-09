@@ -1,4 +1,4 @@
-package ru.nsu.shabalina;
+package main.java.ru.nsu.shabalina;
 
 public class Heapsort {
     /**
