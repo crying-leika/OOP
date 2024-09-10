@@ -4,7 +4,7 @@ import main.java.ru.nsu.shabalina.Heapsort;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class HeapsortTest {
+public class HeapsortTest{
     @Test
     public void testRandom(){
         int[] sut = {1, 3, 2, 2};
