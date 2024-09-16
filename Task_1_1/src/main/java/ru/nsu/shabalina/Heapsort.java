@@ -3,17 +3,18 @@ package main.java.ru.nsu.shabalina;
 public class Heapsort {
     /**
      * Sort given int array and returns it.
+     *
      * @param data - unsorted array
      * @return sorted array
      */
     public static int[] heapsort(int[] data) {
-        if (data == null){
+        if (data == null) {
             return null;
         }
         if (data.length == 0 || data.length == 1) {
             return data;
         }
-        for (int i = data.length/ 2 - 1; i >= 0; i--) {
+        for (int i = data.length / 2 - 1; i >= 0; i--) {
             heapify(data, i, data.length);
         }
 
