@@ -1,15 +1,15 @@
-package task_1_1_2.src.test.java.ru.nsu.shabalina;
+package ru.nsu.shabalina;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import task_1_1_2.src.main.java.ru.nsu.shabalina.Blackjack;
-import task_1_1_2.src.main.java.ru.nsu.shabalina.Gamer;
+import ru.nsu.shabalina.Blackjack;
+import ru.nsu.shabalina.Gamer;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.;
 
 public class GamerTest {
 
