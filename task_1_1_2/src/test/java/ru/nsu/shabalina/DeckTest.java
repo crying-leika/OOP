@@ -1,8 +1,8 @@
-package task_1_1_2.src.test.java.ru.nsu.shabalina;
+package ru.nsu.shabalina;
 
 import org.junit.jupiter.api.Test;
-import task_1_1_2.src.main.java.ru.nsu.shabalina.Blackjack;
-import task_1_1_2.src.main.java.ru.nsu.shabalina.Deck;
+import ru.nsu.shabalina.Blackjack;
+import ru.nsu.shabalina.Deck;
 
 import java.util.List;
 import java.util.Random;
