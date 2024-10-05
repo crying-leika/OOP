@@ -1,15 +1,15 @@
-package task_1_1_2.src.test.java.ru.nsu.shabalina;
+package ru.nsu.shabalina;
 
 import org.junit.jupiter.api.Test;
-import task_1_1_2.src.main.java.ru.nsu.shabalina.Blackjack;
-import task_1_1_2.src.main.java.ru.nsu.shabalina.Gamer;
+import ru.nsu.shabalina.Blackjack;
+import ru.nsu.shabalina.Gamer;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Scanner;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions;
 
 public class BlackjackTest {
 
