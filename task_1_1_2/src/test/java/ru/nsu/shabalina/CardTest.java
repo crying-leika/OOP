@@ -1,7 +1,7 @@
-package task_1_1_2.src.test.java.ru.nsu.shabalina;
+package ru.nsu.shabalina;
 
 import org.junit.jupiter.api.Test;
-import task_1_1_2.src.main.java.ru.nsu.shabalina.Card;
+import ru.nsu.shabalina.Card;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
