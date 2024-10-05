@@ -1,4 +1,4 @@
-package task_1_1_2.src.main.java.ru.nsu.shabalina;
+package ru.nsu.shabalina;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
