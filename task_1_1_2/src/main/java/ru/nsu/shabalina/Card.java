@@ -67,3 +67,5 @@ public class Card {
         return rank.getRuName() + " " + suit.getRuName();
     }
 }
+
+
