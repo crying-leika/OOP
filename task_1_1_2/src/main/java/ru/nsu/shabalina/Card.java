@@ -1,4 +1,4 @@
-package task_1_1_2.src.main.java.ru.nsu.shabalina;
+package ru.nsu.shabalina;
 
 /**
  * Класс, представляющий карту для игры в Блэкджек.
