@@ -3,6 +3,9 @@ package ru.nsu.shabalina;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Класс для игры Blackjack.
+ */
 public class Blackjack {
     public Gamer player;
     public Gamer dealer;
@@ -12,6 +15,9 @@ public class Blackjack {
     public int roundCounter;
     public Scanner scanner;
 
+    /**
+     * Конструктор для инициализации игры.
+     */
     public Blackjack() {
         this.player = new Gamer();
         this.dealer = new Gamer();
@@ -30,7 +36,6 @@ public class Blackjack {
      * @return разданная карта
      * @throws IllegalStateException если колода пуста
      */
-
     public Card dealCard(Gamer gamer) {
         if (deck.size() == 0) {
             throw new IllegalStateException("Колода пуста.");
@@ -46,7 +51,6 @@ public class Blackjack {
      * @param text сообщение для повторного ввода
      * @return введенное целое число
      */
-
     public int myScanInt(String text) {
         int input;
         while (true) {
@@ -61,6 +65,12 @@ public class Blackjack {
         return input;
     }
 
+    /**
+     * Проведение одного раунда игры.
+     *
+     * @param test флаг для тестирования
+     * @param simulateGame флаг для симуляции игры
+     */
     public void round(boolean test, boolean simulateGame) {
         if (roundCounter <= 1) {
             System.out.println("Добро пожаловать в Блэкджек!");
@@ -158,6 +168,12 @@ public class Blackjack {
         roundCounter++;
     }
 
+    /**
+     * Основной игровой цикл.
+     *
+     * @param test флаг для тестирования
+     * @param simulateGame флаг для симуляции игры
+     */
     public void game(boolean test, boolean simulateGame) {
         while (true) {
             round(test, simulateGame);
@@ -177,14 +193,24 @@ public class Blackjack {
         }
     }
 
+    /**
+     * Точка входа в программу.
+     *
+     * @param args аргументы командной строки
+     */
     public static void main(String[] args) {
         Blackjack game = new Blackjack();
         game.game(false, false);
     }
 
+    /**
+     * Класс для представления карты.
+     */
     public static class Card {
+        /**
+         * Перечисление для рангов карт.
+         */
         public enum Rank {
-
             Ace("Туз", 11),
             Two("Двойка", 2),
             Three("Тройка", 3),
@@ -216,6 +242,9 @@ public class Blackjack {
             }
         }
 
+        /**
+         * Перечисление для мастей карт.
+         */
         public enum Suit {
             Spades("Пики"),
             Clubs("Трефы"),
@@ -236,18 +265,36 @@ public class Blackjack {
         public final Suit suit;
         public final Rank rank;
 
+        /**
+         * Конструктор для создания карты.
+         *
+         * @param suit масть карты
+         * @param rank ранг карты
+         */
         public Card(Suit suit, Rank rank) {
             this.suit = suit;
             this.rank = rank;
         }
 
+        /**
+         * Возвращает значение карты.
+         *
+         * @return значение карты
+         */
         public int getValue() {
             return rank.getValue();
         }
 
+        /**
+         * Возвращает строковое представление карты.
+         *
+         * @return строковое представление карты
+         */
+        @Override
         public String toString() {
             return rank.getRuName() + " " + suit.getRuName();
         }
     }
 }
+
 
