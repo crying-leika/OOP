@@ -17,7 +17,12 @@ public class BlackjackTest {
 
     private static void notRepeatInDeck(List<Blackjack.Card> cards) {
         for (Blackjack.Card card : cards) {
-            long cnt = cards.stream().filter(card::equals).count();
+            int cnt = 0;
+            for (Blackjack.Card otherCard : cards) {
+                if (card.equals(otherCard)) {
+                    cnt++;
+                }
+            }
             assertEquals(1, cnt);
         }
     }
@@ -61,7 +66,7 @@ public class BlackjackTest {
 
     @Test
     void myScanIntTest() {
-        String simulatedInput = "sdhglsd\nI DON WANT\nOkay...\n123\n15\naboba\nhaha7\nda\n-5\n";
+        String simulatedInput = "sdhglsd\nOkay...\n123\n15\naboba\nhaha7\nda\n-5\n";
         InputStream originalIn = System.in;
 
         int input = 0;
@@ -74,11 +79,11 @@ public class BlackjackTest {
             Scanner scanner = new Scanner(System.in);
             game.scanner = scanner;
 
-            input = game.myScanInt("Again: ");
+            input = game.myScanInt("снова: ");
             assertEquals(123, input);
-            input = game.myScanInt("Again: ");
+            input = game.myScanInt("снова: ");
             assertEquals(15, input);
-            input = game.myScanInt("Again: ");
+            input = game.myScanInt("снова: ");
             assertEquals(-5, input);
         } finally {
             System.setIn(originalIn);
@@ -112,7 +117,6 @@ public class BlackjackTest {
         assertEquals(2, game.roundCounter);
     }
 
-
     @Test
     void playerInputTest2() {
         String simulatedInput = "0\n1\n0\n0\n";
@@ -137,7 +141,6 @@ public class BlackjackTest {
             System.setIn(originalIn);
         }
     }
-
 }
 
 
