@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 import java.util.Random;
-
 import org.junit.jupiter.api.Test;
 
 /**
@@ -40,9 +39,7 @@ public class DeckTest {
 
             Blackjack.Card fst = deck.cards.get(a);
             Blackjack.Card snd = deck.cards.get(b);
-
             deck.swap(a, b, deck.size());
-
             Blackjack.Card sndNew = deck.cards.get(b);
             assertEquals(fst.suit, sndNew.suit);
             assertEquals(fst.rank, sndNew.rank);
