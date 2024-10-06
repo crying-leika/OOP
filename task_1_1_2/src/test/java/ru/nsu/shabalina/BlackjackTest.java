@@ -4,8 +4,8 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Scanner;
-import org.junit.jupiter.api.Test;
 
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -13,8 +13,16 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * Класс для тестирования игры Blackjack.
+ */
 public class BlackjackTest {
 
+    /**
+     * Проверяет, что в колоде нет повторяющихся карт.
+     *
+     * @param cards список карт для проверки
+     */
     private static void notRepeatInDeck(List<Blackjack.Card> cards) {
         for (Blackjack.Card card : cards) {
             int cnt = 0;
@@ -27,6 +35,9 @@ public class BlackjackTest {
         }
     }
 
+    /**
+     * Тест для проверки инициализации игры.
+     */
     @Test
     void gameClassTest() {
         Blackjack game = new Blackjack();
@@ -43,6 +54,9 @@ public class BlackjackTest {
         assertEquals(1, game.roundCounter);
     }
 
+    /**
+     * Тест для проверки раздачи карт.
+     */
     @Test
     void dealCardTest() {
         Gamer player = new Gamer();
@@ -64,6 +78,9 @@ public class BlackjackTest {
         assertThrows(IllegalStateException.class, () -> game.dealCard(player));
     }
 
+    /**
+     * Тест для проверки метода myScanInt.
+     */
     @Test
     void myScanIntTest() {
         String simulatedInput = "sdhglsd\nOkay...\n123\n15\naboba\nhaha7\nda\n-5\n";
@@ -90,33 +107,44 @@ public class BlackjackTest {
         }
     }
 
+    /**
+     * Тест для проверки раунда игры.
+     */
     @Test
     void roundTest() {
         Blackjack game = new Blackjack();
         game.round(true, false);
     }
 
+    /**
+     * Тест для проверки всей игры.
+     */
     @Test
     void gameTest() {
         Blackjack game = new Blackjack();
         game.game(true, false);
     }
 
-    // EXTRA
+    /**
+     * Тест для проверки победы игрока с 21 очком.
+     */
     @Test
     void playerWinsWith21PointsTest() {
-        Blackjack game = new Blackjack();
-        game.player.addCard(new Blackjack.Card(Blackjack.Card.Suit.Spades, Blackjack.Card.Rank.Ace));
-        game.player.addCard(new Blackjack.Card(Blackjack.Card.Suit.Hearts, Blackjack.Card.Rank.King));
-        game.dealer.addCard(new Blackjack.Card(Blackjack.Card.Suit.Clubs, Blackjack.Card.Rank.Five));
+        Blackjack g = new Blackjack();
+        g.player.addCard(new Blackjack.Card(Blackjack.Card.Suit.Spades, Blackjack.Card.Rank.Ace));
+        g.player.addCard(new Blackjack.Card(Blackjack.Card.Suit.Hearts, Blackjack.Card.Rank.King));
+        g.dealer.addCard(new Blackjack.Card(Blackjack.Card.Suit.Clubs, Blackjack.Card.Rank.Five));
 
-        assertEquals(21, game.player.getScore());
+        assertEquals(21, g.player.getScore());
 
-        game.round(true, true);
-        assertEquals(1, game.playerCounter);
-        assertEquals(2, game.roundCounter);
+        g.round(true, true);
+        assertEquals(1, g.playerCounter);
+        assertEquals(2, g.roundCounter);
     }
 
+    /**
+     * Тест для проверки ввода игрока.
+     */
     @Test
     void playerInputTest2() {
         String simulatedInput = "0\n1\n0\n0\n";
@@ -124,23 +152,24 @@ public class BlackjackTest {
         try {
             ByteArrayInputStream in = new ByteArrayInputStream(simulatedInput.getBytes());
             System.setIn(in);
-            Blackjack game = new Blackjack();
+            Blackjack g = new Blackjack();
 
-            game.deck.cards.add(new Blackjack.Card(Blackjack.Card.Suit.Spades, Blackjack.Card.Rank.Ace));
-            game.deck.cards.add(new Blackjack.Card(Blackjack.Card.Suit.Hearts, Blackjack.Card.Rank.King));
-            game.deck.cards.add(new Blackjack.Card(Blackjack.Card.Suit.Clubs, Blackjack.Card.Rank.Five));
-            game.deck.cards.add(new Blackjack.Card(Blackjack.Card.Suit.Diamonds, Blackjack.Card.Rank.Ten));
-            game.deck.cards.add(new Blackjack.Card(Blackjack.Card.Suit.Diamonds, Blackjack.Card.Rank.Jack));
-            game.deck.cards.add(new Blackjack.Card(Blackjack.Card.Suit.Diamonds, Blackjack.Card.Rank.Queen));
+            g.deck.cards.add(new Blackjack.Card(Blackjack.Card.Suit.Spades, Blackjack.Card.Rank.Ace));
+            g.deck.cards.add(new Blackjack.Card(Blackjack.Card.Suit.Hearts, Blackjack.Card.Rank.King));
+            g.deck.cards.add(new Blackjack.Card(Blackjack.Card.Suit.Clubs, Blackjack.Card.Rank.Five));
+            g.deck.cards.add(new Blackjack.Card(Blackjack.Card.Suit.Diamonds, Blackjack.Card.Rank.Ten));
+            g.deck.cards.add(new Blackjack.Card(Blackjack.Card.Suit.Diamonds, Blackjack.Card.Rank.Jack));
+            g.deck.cards.add(new Blackjack.Card(Blackjack.Card.Suit.Diamonds, Blackjack.Card.Rank.Queen));
 
-            game.game(false, false);
+            g.game(false, false);
 
-            assertEquals(3, game.roundCounter);
-            assertTrue(game.playerCounter + game.dealerCounter >= 2);
+            assertEquals(3, g.roundCounter);
+            assertTrue(g.playerCounter + g.dealerCounter >= 2);
         } finally {
             System.setIn(originalIn);
         }
     }
 }
+
 
 

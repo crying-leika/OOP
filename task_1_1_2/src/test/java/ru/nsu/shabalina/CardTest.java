@@ -4,8 +4,14 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Класс для тестирования карт в игре Blackjack.
+ */
 public class CardTest {
 
+    /**
+     * Тест для проверки создания карт с различными мастями и рангами.
+     */
     @Test
     void cardTest() {
         Card.Suit suit;
@@ -24,15 +30,18 @@ public class CardTest {
         }
     }
 
+    /**
+     * Тест для проверки значений очков карт.
+     */
     @Test
     void pointsTest() {
         Card card;
 
-        // For each suit
+        // Для каждой масти
         for (int i = 0; i < 4; i++) {
             Card.Suit suit = Card.Suit.values()[i];
 
-            // Ace
+            // Туз
             card = new Card(suit, Card.Rank.Ace);
             assertEquals(11, card.getValue());
 
@@ -42,17 +51,18 @@ public class CardTest {
                 assertEquals(j + 1, card.getValue());
             }
 
-            // Jack
+            // Валет
             card = new Card(suit, Card.Rank.Jack);
             assertEquals(10, card.getValue());
-            // Queen
+            // Дама
             card = new Card(suit, Card.Rank.Queen);
             assertEquals(10, card.getValue());
-            // King
+            // Король
             card = new Card(suit, Card.Rank.King);
             assertEquals(10, card.getValue());
         }
     }
 }
+
 
 
