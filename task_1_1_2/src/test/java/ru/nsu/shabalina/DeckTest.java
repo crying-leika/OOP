@@ -1,13 +1,20 @@
 package ru.nsu.shabalina;
 
-import java.util.List;
-import java.util.Random;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.List;
+import java.util.Random;
+
+import org.junit.jupiter.api.Test;
+
+/**
+ * Класс для тестирования колоды карт в игре Blackjack.
+ */
 public class DeckTest {
 
+    /**
+     * Тест для проверки корректности создания колоды.
+     */
     @Test
     void deckTest() {
         Deck deck = new Deck();
@@ -19,6 +26,9 @@ public class DeckTest {
         }
     }
 
+    /**
+     * Тест для проверки метода swap.
+     */
     @Test
     void swapTest() {
         for (int i = 0; i < 1000; i++) {
@@ -43,6 +53,11 @@ public class DeckTest {
         }
     }
 
+    /**
+     * Проверяет, что в колоде нет повторяющихся карт.
+     *
+     * @param cards список карт для проверки
+     */
     private static void notRepeatInDeck(List<Blackjack.Card> cards) {
         for (Blackjack.Card card : cards) {
             long cnt = cards.stream().filter(card::equals).count();
@@ -50,6 +65,9 @@ public class DeckTest {
         }
     }
 
+    /**
+     * Тест для проверки метода shuffle.
+     */
     @Test
     void shuffleTest() {
         Deck d = new Deck();
