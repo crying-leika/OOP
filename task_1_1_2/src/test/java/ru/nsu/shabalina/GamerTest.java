@@ -110,8 +110,3 @@ public class GamerTest {
         System.setOut(originalOut);
     }
 }
-
-
-
-
-
