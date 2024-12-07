@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"ru.nsu.shabalina","l":"AdjacencyList"},{"p":"ru.nsu.shabalina","l":"AdjacencyMatrix"},{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.shabalina","l":"Graph"},{"p":"ru.nsu.shabalina","l":"IncidenceMatrix"},{"p":"ru.nsu.shabalina","l":"Main"}]
