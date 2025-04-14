@@ -1,0 +1,54 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'jacoco'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+group = 'ru.nsu.shabalina'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'org.openjfx:javafx-controls:21'
+    implementation 'org.openjfx:javafx-fxml:21'
+}
+
+test {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        html.required = true
+    }
+}
+
+javafx {
+    version = "21"
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+application {
+    mainClass = 'ru.nsu.shabalina.Main'
+    applicationDefaultJvmArgs = [
+            '--module-path', configurations.runtimeClasspath.files
+            .findAll { it.name.contains('javafx') }
+            .collect { it.absolutePath }
+            .join(File.pathSeparator),
+            '--add-modules', 'javafx.controls,javafx.fxml'
+    ]
+}
+
+tasks.named('run') {
+    dependsOn 'build'
+}
+
