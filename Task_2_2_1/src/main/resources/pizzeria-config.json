@@ -1,0 +1,13 @@
+{
+  "orderInterval": 1000,
+  "storageCapacity": 5,
+  "operatingTimeSeconds": 30,
+  "makers": [
+    { "name": "Пекарь1", "bakingTime": 2.0 },
+    { "name": "Пекарь2", "bakingTime": 1.5 }
+  ],
+  "workers": [
+    { "name": "Курьер1", "loadCapacity": 3 },
+    { "name": "Курьер2", "loadCapacity": 2 }
+  ]
+}

@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id 'jacoco'
+    id 'application' // Добавляем плагин application для запуска main
+}
+
+group = 'ru.nsu.basargina'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+        html.required = true // Включили HTML для удобства
+    }
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+application {
+    mainClass = 'ru.nsu.shabalina.Main' // Указываем главный класс
+}
+
